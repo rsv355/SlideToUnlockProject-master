@@ -32,7 +32,7 @@
       android:minHeight="48dp"
       android:maxHeight="48dp"
       android:progressDrawable="@drawable/progressbar"
-      android:thumb="@drawable/circle2"
+
 
       />
 </merge>
