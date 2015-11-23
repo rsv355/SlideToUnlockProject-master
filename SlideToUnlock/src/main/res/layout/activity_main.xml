@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:su="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity">
+
+  <com.slidetounlock.widget.SlideToUnlock
+      android:background="@drawable/cornerround"
+      android:layout_marginTop="16dp"
+      android:layout_marginBottom="16dp"
+      android:id="@+id/slidetounlock"
+      android:layout_width="match_parent"
+      android:layout_height="48dp"
+      android:layout_centerInParent="true"
+      su:text="PARENT ZONE"
+      su:thumb="@drawable/circle2"
+      />
+
+
+    <com.slidetounlock.widget.SlideToUnlock
+
+        android:background="@drawable/cornerround"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/slidetounlock2"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        su:text="CHILD ZONE"
+        su:thumb="@drawable/circle2"
+        />
+
+    <com.slidetounlock.widget.SlideToUnlock
+
+        android:background="@drawable/cornerround"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:id="@+id/slidetounlock3"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_centerInParent="true"
+        su:text="KIDS ZONE"
+        su:thumb="@drawable/circle2"
+        />
+
+</LinearLayout>
