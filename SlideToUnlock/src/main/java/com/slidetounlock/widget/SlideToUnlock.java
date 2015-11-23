@@ -20,6 +20,7 @@ import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.os.Vibrator;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -47,16 +48,19 @@ public class SlideToUnlock extends RelativeLayout {
     /**
      * Called when unlock event occurred.
      */
-    void onUnlock();
+    void onUnlock(int seekBarProgressValue);
   }
 
   private OnUnlockListener listener;
   public static SeekBar          seekbar;
   private TextView         label;
   private int              thumbWidth;
+  private Context _ctx;
 
   public SlideToUnlock(Context context) {
     super(context);
+
+
     init(context, null);
   }
 
@@ -84,7 +88,12 @@ public class SlideToUnlock extends RelativeLayout {
     seekbar.setProgress(0);
   }
 
+
+
   private void init(Context context, AttributeSet attrs) {
+
+  this._ctx = context;
+
     if (isInEditMode()) {
       return;
     }
@@ -121,14 +130,22 @@ public class SlideToUnlock extends RelativeLayout {
     int defaultOffset = seekbar.getThumbOffset();
     seekbar.setThumb(thumb);
     seekbar.setThumbOffset(defaultOffset);
+    seekbar.setMax(101);
+
 
 
 
     seekbar.setOnTouchListener(new OnTouchListener() {
       private boolean isInvalidMove;
 
+
+
       @Override
       public boolean onTouch(View view, MotionEvent motionEvent) {
+
+      /*  Vibrator vibe = (Vibrator) _ctx.getSystemService(Context.VIBRATOR_SERVICE);
+        vibe.vibrate(100);*/
+
         switch (motionEvent.getAction()) {
           case MotionEvent.ACTION_DOWN:
             return isInvalidMove = motionEvent.getX() > thumbWidth;
@@ -154,17 +171,32 @@ public class SlideToUnlock extends RelativeLayout {
 
       @Override
       public void onStopTrackingTouch(SeekBar seekBar) {
-        if (seekBar.getProgress() < 100) {
+
+
+        ObjectAnimator anim = ObjectAnimator.ofInt(seekBar, "progress", 0);
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
+        anim.start();
+
+
+        if(!seekBar.isFocusableInTouchMode())
+        listener.onUnlock(seekBar.getProgress());
+
+        /*
+        if (seekBar.getProgress() < 60) {
           ObjectAnimator anim = ObjectAnimator.ofInt(seekBar, "progress", 0);
           anim.setInterpolator(new AccelerateDecelerateInterpolator());
           anim.setDuration(getResources().getInteger(android.R.integer.config_shortAnimTime));
           anim.start();
         }
+
         else {
           if (listener != null) {
-            listener.onUnlock();
+              listener.onUnlock();
           }
         }
+        */
+
       }
     });
   }
