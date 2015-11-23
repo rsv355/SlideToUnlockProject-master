@@ -24,6 +24,7 @@
       />
 
   <SeekBar
+
       android:layout_centerInParent="true"
       android:id="@+id/slider_seekbar"
       android:layout_width="match_parent"

@@ -19,6 +19,8 @@ package com.slidetounlock.widget;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
 import android.util.AttributeSet;
@@ -32,6 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
 
 /**
  * Custom slider view aka "Slide to unlock".
@@ -110,9 +113,11 @@ public class SlideToUnlock extends RelativeLayout {
     TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.SlideToUnlockView);
     String text = attributes.getString(R.styleable.SlideToUnlockView_text);
     Drawable thumb = attributes.getDrawable(R.styleable.SlideToUnlockView_thumb);
+
     if (thumb == null) {
       thumb = getResources().getDrawable(R.drawable.slidetounlock_thumb);
     }
+
     track = attributes.getDrawable(R.styleable.SlideToUnlockView_track);
     attributes.recycle();
 
@@ -167,6 +172,8 @@ public class SlideToUnlock extends RelativeLayout {
       @Override
       public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
         label.setAlpha(1f - progress * 0.02f);
+
+
       }
 
       @Override
