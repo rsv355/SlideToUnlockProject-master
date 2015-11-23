@@ -74,7 +74,7 @@ public class SlideToUnlock extends RelativeLayout {
 
   public void setOnUnlockListener(OnUnlockListener listener) {
     this.listener = listener;
-    reset();
+    this.seekbar.setProgress(0);
   }
 
   /**

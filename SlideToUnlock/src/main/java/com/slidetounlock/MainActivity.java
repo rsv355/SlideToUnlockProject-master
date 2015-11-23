@@ -21,19 +21,36 @@ public class MainActivity extends Activity implements SlideToUnlock.OnUnlockList
     slideToUnlock3 = (SlideToUnlock) findViewById(R.id.slidetounlock3);
 
 
-    slideToUnlock.setOnUnlockListener(this);
-    slideToUnlock2.setOnUnlockListener(this);
-    slideToUnlock3.setOnUnlockListener(this);
+    slideToUnlock.setOnUnlockListener(new SlideToUnlock.OnUnlockListener() {
+      @Override
+      public void onUnlock() {
+        slideToUnlock.reset();
+
+        startActivity(new Intent(MainActivity.this, NewActivity.class));
+      }
+    });
+
+    slideToUnlock2.setOnUnlockListener(new SlideToUnlock.OnUnlockListener() {
+      @Override
+      public void onUnlock() {
+        slideToUnlock2.reset();
+
+        startActivity(new Intent(MainActivity.this, NewActivity.class));
+      }
+    });
+
+    slideToUnlock3.setOnUnlockListener(new SlideToUnlock.OnUnlockListener() {
+      @Override
+      public void onUnlock() {
+        slideToUnlock3.reset();
+        startActivity(new Intent(MainActivity.this, NewActivity.class));
+      }
+    });
   }
 
 
   @Override
   public void onUnlock() {
 
-    slideToUnlock.reset();
-
-    startActivity(new Intent(MainActivity.this, NewActivity.class));
-
   }
-
 }
