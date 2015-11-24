@@ -149,7 +149,7 @@ public class SlideToUnlock3 extends RelativeLayout {
     int defaultOffset = seekbar.getThumbOffset();
 
     int col = Color.parseColor("#ff9900");
-    seekbar.setThumb(writeOnDrawable(R.drawable.orangecircle_img, "FROM\nPRINCIPAL'S\nDESK",col));
+    seekbar.setThumb(writeOnDrawable(R.drawable.orangecircle_img, "PRINCIPAL",col));
 
     seekbar.setThumbOffset(defaultOffset);
     seekbar.setMax(101);
