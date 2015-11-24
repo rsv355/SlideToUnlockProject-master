@@ -27,10 +27,12 @@ import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -143,7 +145,7 @@ public class SlideToUnlock extends RelativeLayout {
 
    // seekbar.setThumb(thumb);
 
-    seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Invision"));
+    seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Vision"));
 
     seekbar.setThumbOffset(defaultOffset);
     seekbar.setMax(101);
@@ -220,7 +222,7 @@ public class SlideToUnlock extends RelativeLayout {
   }
 
 
-  public BitmapDrawable writeOnDrawable(int drawableId, String text){
+  public  BitmapDrawable writeOnDrawable(int drawableId, String text){
 
     Bitmap bm = BitmapFactory.decodeResource(getResources(), drawableId).copy(Bitmap.Config.ARGB_8888, true);
 
@@ -232,14 +234,23 @@ public class SlideToUnlock extends RelativeLayout {
     canvas1.drawBitmap(bm, 0, 0, paint1);
 
 
-    Paint paint = new Paint();
-    paint.setStyle(Paint.Style.FILL);
+    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     paint.setColor(Color.WHITE);
 
-    paint.setTextSize(17);
+    paint.setTextSize(23);
 
     Canvas canvas = new Canvas(bm);
-    canvas.drawText(text,5, bm.getHeight()/2+5, paint);
+
+    int cHeight = canvas.getClipBounds().height();
+    int cWidth = canvas.getClipBounds().width();
+    Rect r = new Rect();
+    paint.setTextAlign(Paint.Align.LEFT);
+    paint.getTextBounds(text, 0, text.length(), r);
+
+    float x = cWidth / 2f - r.width() / 2f - r.left;
+    float y = cHeight / 2f + r.height() / 2f - r.bottom;
+
+    canvas.drawText(text,x,y, paint);
 
 
     BitmapDrawable drawable = new BitmapDrawable(getResources(),bm);
