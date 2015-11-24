@@ -29,8 +29,8 @@
       android:id="@+id/slider_seekbar"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:minHeight="48dp"
-      android:maxHeight="48dp"
+      android:minHeight="60dp"
+      android:maxHeight="60dp"
       android:progressDrawable="@drawable/progressbar"
 
 

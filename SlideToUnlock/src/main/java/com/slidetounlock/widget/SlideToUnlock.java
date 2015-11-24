@@ -43,6 +43,7 @@ import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -143,7 +144,6 @@ public class SlideToUnlock extends RelativeLayout {
 
     int defaultOffset = seekbar.getThumbOffset();
 
-   // seekbar.setThumb(thumb);
 
     seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Vision"));
 
@@ -161,15 +161,23 @@ public class SlideToUnlock extends RelativeLayout {
       @Override
       public boolean onTouch(View view, MotionEvent motionEvent) {
 
-      /*  Vibrator vibe = (Vibrator) _ctx.getSystemService(Context.VIBRATOR_SERVICE);
-        vibe.vibrate(100);*/
+
 
         switch (motionEvent.getAction()) {
+
           case MotionEvent.ACTION_DOWN:
+            //Finger Touch
+            Vibrator vibe = (Vibrator) _ctx.getSystemService(Context.VIBRATOR_SERVICE);
+            vibe.vibrate(100);
+
+            Toast.makeText(getContext(),"Tap",Toast.LENGTH_SHORT).show();
+
             return isInvalidMove = motionEvent.getX() > thumbWidth;
+
           case MotionEvent.ACTION_MOVE:
             return isInvalidMove;
           case MotionEvent.ACTION_UP:
+            //Release
             return isInvalidMove;
         }
         return false;
@@ -183,9 +191,12 @@ public class SlideToUnlock extends RelativeLayout {
       }
 
       @Override
-      public void onProgressChanged(SeekBar seekBar, int progress, boolean fromTouch) {
+      public void onProgressChanged(SeekBar seekBar1, int progress, boolean fromTouch) {
         label.setAlpha(1f - progress * 0.02f);
 
+       // seekBar1.setThumb(writeOnDrawable(R.drawable.circle2, "" + progress));
+        //int defaultOffset = seekBar1.getThumbOffset();
+        //seekBar1.setThumbOffset(defaultOffset);
 
       }
 
