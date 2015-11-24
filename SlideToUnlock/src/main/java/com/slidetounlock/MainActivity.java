@@ -73,20 +73,24 @@ public class MainActivity extends Activity {
 
 
 
+
+
+
 /*
         parentTips = new BadgeView(MainActivity.this, slideToUnlock);
         parentTips.setBadgeBackgroundColor(Color.parseColor("#00001a"));
         parentTips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
-        parentTips.setBadgeMargin(40, 15);
+        parentTips.setBadgeMargin(80, 60);
         parentTips.setText("2");
         parentTips.show();
-
-
-
-
-
-
 */
+
+
+
+
+
+
+
     }
 
 

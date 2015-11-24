@@ -31,6 +31,7 @@ import android.graphics.PorterDuffColorFilter;
 import android.graphics.RadialGradient;
 import android.graphics.Rect;
 import android.graphics.Shader;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
@@ -47,6 +48,8 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.readystatesoftware.viewbadger.BadgeView;
 
 
 /**
@@ -120,6 +123,19 @@ public class SlideToUnlock extends RelativeLayout {
     inflater.inflate(R.layout.slidetounlock_lt, this, true);
 
     label = (TextView) findViewById(R.id.slider_label);
+    Typeface custom_font = Typeface.createFromAsset(_ctx.getAssets(), "fonts/trench.ttf");
+    label.setTypeface(custom_font);
+
+    BadgeView parentTips = new BadgeView(_ctx, label);
+    parentTips.setBadgeBackgroundColor(Color.parseColor("#00001a"));
+  //  parentTips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+    parentTips.setBadgeMargin(30, 30);
+    parentTips.setText("2");
+    parentTips.show();
+
+
+
+
     seekbar = (SeekBar) findViewById(R.id.slider_seekbar);
     background = findViewById(R.id.slider_bg);
 

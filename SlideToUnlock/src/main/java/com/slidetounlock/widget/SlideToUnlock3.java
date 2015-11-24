@@ -28,6 +28,7 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
@@ -116,6 +117,10 @@ public class SlideToUnlock3 extends RelativeLayout {
     inflater.inflate(R.layout.slidetounlock_lt3, this, true);
 
     label = (TextView) findViewById(R.id.slider_label);
+    Typeface custom_font = Typeface.createFromAsset(_ctx.getAssets(), "fonts/trench.ttf");
+    label.setTypeface(custom_font);
+
+
     seekbar = (SeekBar) findViewById(R.id.slider_seekbar);
     background = findViewById(R.id.slider_bg);
 

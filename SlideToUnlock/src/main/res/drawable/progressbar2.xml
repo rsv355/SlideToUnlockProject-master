@@ -35,7 +35,7 @@
     <item android:id="@android:id/progress">
         <clip>
             <shape android:shape="rectangle" >
-                <corners android:radius="32dp" />
+                <corners android:radius="38dp" />
                 <gradient
                     android:angle="180"
                     android:endColor="#2FE52E"
