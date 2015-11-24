@@ -191,7 +191,7 @@ public class SlideToUnlock3 extends RelativeLayout {
 
       @Override
       public void onProgressChanged(SeekBar seekBar1, int progress, boolean fromTouch) {
-        label.setAlpha(1f - progress * 0.02f);
+       // label.setAlpha(1f - progress * 0.02f);
 
        // seekBar1.setThumb(writeOnDrawable(R.drawable.circle2, "" + progress));
         //int defaultOffset = seekBar1.getThumbOffset();

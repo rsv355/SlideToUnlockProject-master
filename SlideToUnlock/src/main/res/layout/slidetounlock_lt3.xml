@@ -11,7 +11,7 @@
 
     <TextView
         android:layout_marginLeft="32dp"
-        android:background="@drawable/cornerround3"
+        android:background="@drawable/cornerround"
         android:layout_gravity="center"
         android:id="@+id/slider_label"
         android:gravity="center"
