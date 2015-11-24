@@ -2,9 +2,11 @@ package com.slidetounlock;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.readystatesoftware.viewbadger.BadgeView;
 import com.slidetounlock.widget.R;
 import com.slidetounlock.widget.SlideToUnlock;
 import com.slidetounlock.widget.SlideToUnlock2;
@@ -15,6 +17,9 @@ public class MainActivity extends Activity {
     private SlideToUnlock slideToUnlock;
     private SlideToUnlock2 slideToUnlock2;
     private SlideToUnlock3 slideToUnlock3;
+    BadgeView parentTips;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,15 @@ public class MainActivity extends Activity {
 
 
         });
+
+
+        parentTips = new BadgeView(MainActivity.this, slideToUnlock);
+        parentTips.setBadgeBackgroundColor(Color.parseColor("#00001a"));
+        parentTips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+        parentTips.setBadgeMargin(40, 15);
+        parentTips.setText("2");
+        parentTips.show();
+
 
 
         slideToUnlock2.setOnUnlockListener(new SlideToUnlock2.OnUnlockListener() {
