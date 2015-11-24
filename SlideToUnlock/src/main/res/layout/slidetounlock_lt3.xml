@@ -2,7 +2,7 @@
 <merge xmlns:android="http://schemas.android.com/apk/res/android">
 
   <View
-      android:background="@drawable/cornerround"
+      android:background="@drawable/cornerround3"
       android:layout_gravity="center"
       android:id="@+id/slider_bg"
       android:layout_marginLeft="16dp"

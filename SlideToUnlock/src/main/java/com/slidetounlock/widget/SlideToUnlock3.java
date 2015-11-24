@@ -143,8 +143,8 @@ public class SlideToUnlock3 extends RelativeLayout {
 
     int defaultOffset = seekbar.getThumbOffset();
 
-
-    seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Vision"));
+    int col = Color.parseColor("#ff9900");
+    seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Dummy",col));
 
     seekbar.setThumbOffset(defaultOffset);
     seekbar.setMax(101);
@@ -232,12 +232,12 @@ public class SlideToUnlock3 extends RelativeLayout {
   }
 
 
-  public  BitmapDrawable writeOnDrawable(int drawableId, String text){
+  public  BitmapDrawable writeOnDrawable(int drawableId, String text,int col){
 
     Bitmap bm = BitmapFactory.decodeResource(getResources(), drawableId).copy(Bitmap.Config.ARGB_8888, true);
 
     Paint paint1 = new Paint();
-    ColorFilter filter = new PorterDuffColorFilter(getResources().getColor(android.R.color.holo_blue_dark), PorterDuff.Mode.SRC_IN);
+    ColorFilter filter = new PorterDuffColorFilter(col, PorterDuff.Mode.SRC_IN);
     paint1.setColorFilter(filter);
 
     Canvas canvas1 = new Canvas(bm);
