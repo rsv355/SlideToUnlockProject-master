@@ -144,7 +144,7 @@ public class SlideToUnlock3 extends RelativeLayout {
     int defaultOffset = seekbar.getThumbOffset();
 
     int col = Color.parseColor("#ff9900");
-    seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Dummy",col));
+    seekbar.setThumb(writeOnDrawable(R.drawable.orangecircle_img, "FROM\nPRINCIPAL'S\nDESK",col));
 
     seekbar.setThumbOffset(defaultOffset);
     seekbar.setMax(101);
@@ -166,10 +166,6 @@ public class SlideToUnlock3 extends RelativeLayout {
 
           case MotionEvent.ACTION_DOWN:
             //Finger Touch
-            Vibrator vibe = (Vibrator) _ctx.getSystemService(Context.VIBRATOR_SERVICE);
-            vibe.vibrate(100);
-
-            Toast.makeText(getContext(),"Tap",Toast.LENGTH_SHORT).show();
 
             return isInvalidMove = motionEvent.getX() > thumbWidth;
 
@@ -235,19 +231,19 @@ public class SlideToUnlock3 extends RelativeLayout {
   public  BitmapDrawable writeOnDrawable(int drawableId, String text,int col){
 
     Bitmap bm = BitmapFactory.decodeResource(getResources(), drawableId).copy(Bitmap.Config.ARGB_8888, true);
-
+/*
     Paint paint1 = new Paint();
     ColorFilter filter = new PorterDuffColorFilter(col, PorterDuff.Mode.SRC_IN);
     paint1.setColorFilter(filter);
 
     Canvas canvas1 = new Canvas(bm);
     canvas1.drawBitmap(bm, 0, 0, paint1);
-
+*/
 
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     paint.setColor(Color.WHITE);
 
-    paint.setTextSize(23);
+    paint.setTextSize(30);
 
     Canvas canvas = new Canvas(bm);
 

@@ -9,16 +9,17 @@
       android:layout_height="wrap_content"
       />
 
+
     <TextView
-        android:layout_marginLeft="32dp"
         android:background="@drawable/cornerround"
+        android:layout_marginLeft="32dp"
         android:layout_gravity="center"
         android:id="@+id/slider_label"
         android:gravity="center"
         android:layout_centerInParent="true"
         android:textColor="@android:color/black"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="80dp"
         android:text="@string/slidetounlock_label_default"
         android:textSize="16sp"
         />
@@ -30,8 +31,8 @@
       android:id="@+id/slider_seekbar"
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-        android:minHeight="48dp"
-        android:maxHeight="48dp"
+        android:minHeight="80dp"
+        android:maxHeight="80dp"
       android:progressDrawable="@drawable/progressbar2"
 
 

@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
 
         slideToUnlock2 = (SlideToUnlock2) findViewById(R.id.slidetounlock2);
 
-        slideToUnlock3 = (SlideToUnlock3) findViewById(R.id.slidetounlock3);
+       slideToUnlock3 = (SlideToUnlock3) findViewById(R.id.slidetounlock3);
 
         slideToUnlock.setOnUnlockListener(new SlideToUnlock.OnUnlockListener() {
             @Override
@@ -45,15 +45,6 @@ public class MainActivity extends Activity {
         });
 
 
-        parentTips = new BadgeView(MainActivity.this, slideToUnlock);
-        parentTips.setBadgeBackgroundColor(Color.parseColor("#00001a"));
-        parentTips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
-        parentTips.setBadgeMargin(40, 15);
-        parentTips.setText("2");
-        parentTips.show();
-
-
-
         slideToUnlock2.setOnUnlockListener(new SlideToUnlock2.OnUnlockListener() {
             @Override
             public void onUnlock(int seekBarProgressValue) {
@@ -65,6 +56,8 @@ public class MainActivity extends Activity {
 
 
         });
+
+
 
         slideToUnlock3.setOnUnlockListener(new SlideToUnlock3.OnUnlockListener() {
             @Override
@@ -79,6 +72,21 @@ public class MainActivity extends Activity {
         });
 
 
+
+/*
+        parentTips = new BadgeView(MainActivity.this, slideToUnlock);
+        parentTips.setBadgeBackgroundColor(Color.parseColor("#00001a"));
+        parentTips.setBadgePosition(BadgeView.POSITION_TOP_RIGHT);
+        parentTips.setBadgeMargin(40, 15);
+        parentTips.setText("2");
+        parentTips.show();
+
+
+
+
+
+
+*/
     }
 
 

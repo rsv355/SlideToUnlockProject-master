@@ -146,7 +146,7 @@ public class SlideToUnlock2 extends RelativeLayout {
 
     int col = Color.parseColor("#39ac39");
 
-    seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Kids",col));
+    seekbar.setThumb(writeOnDrawable(R.drawable.greencircle_img, "MOTIVATION",col));
 
     seekbar.setThumbOffset(defaultOffset);
     seekbar.setMax(101);
@@ -168,10 +168,6 @@ public class SlideToUnlock2 extends RelativeLayout {
 
           case MotionEvent.ACTION_DOWN:
             //Finger Touch
-            Vibrator vibe = (Vibrator) _ctx.getSystemService(Context.VIBRATOR_SERVICE);
-            vibe.vibrate(100);
-
-            Toast.makeText(getContext(),"Tap",Toast.LENGTH_SHORT).show();
 
             return isInvalidMove = motionEvent.getX() > thumbWidth;
 
@@ -240,7 +236,7 @@ public class SlideToUnlock2 extends RelativeLayout {
 
     Bitmap bm = BitmapFactory.decodeResource(getResources(), drawableId).copy(Bitmap.Config.ARGB_8888, true);
 
-    Paint paint1 = new Paint();
+    /*Paint paint1 = new Paint();
 
 
     ColorFilter filter = new PorterDuffColorFilter(col, PorterDuff.Mode.SRC_IN);
@@ -248,12 +244,12 @@ public class SlideToUnlock2 extends RelativeLayout {
 
     Canvas canvas1 = new Canvas(bm);
     canvas1.drawBitmap(bm, 0, 0, paint1);
-
+*/
 
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     paint.setColor(Color.WHITE);
 
-    paint.setTextSize(23);
+    paint.setTextSize(30);
 
     Canvas canvas = new Canvas(bm);
 

@@ -24,10 +24,13 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.RadialGradient;
 import android.graphics.Rect;
+import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Vibrator;
@@ -145,7 +148,7 @@ public class SlideToUnlock extends RelativeLayout {
     int defaultOffset = seekbar.getThumbOffset();
 
     int col = Color.parseColor("#ff0099cc");
-    seekbar.setThumb(writeOnDrawable(R.drawable.circle2, "Vision",col));
+    seekbar.setThumb(writeOnDrawable(R.drawable.bluecircle_img, "INISPIRATION",col));
 
     seekbar.setThumbOffset(defaultOffset);
     seekbar.setMax(101);
@@ -167,10 +170,6 @@ public class SlideToUnlock extends RelativeLayout {
 
           case MotionEvent.ACTION_DOWN:
             //Finger Touch
-            Vibrator vibe = (Vibrator) _ctx.getSystemService(Context.VIBRATOR_SERVICE);
-            vibe.vibrate(100);
-
-            Toast.makeText(getContext(),"Tap",Toast.LENGTH_SHORT).show();
 
             return isInvalidMove = motionEvent.getX() > thumbWidth;
 
@@ -237,18 +236,30 @@ public class SlideToUnlock extends RelativeLayout {
 
     Bitmap bm = BitmapFactory.decodeResource(getResources(), drawableId).copy(Bitmap.Config.ARGB_8888, true);
 
-    Paint paint1 = new Paint();
-    ColorFilter filter = new PorterDuffColorFilter(col, PorterDuff.Mode.SRC_IN);
-    paint1.setColorFilter(filter);
+   // Paint paint1 = new Paint();
+  //  ColorFilter filter = new PorterDuffColorFilter(col, PorterDuff.Mode.SRC_IN);
+   /// paint1.setColorFilter(filter);
 
-    Canvas canvas1 = new Canvas(bm);
-    canvas1.drawBitmap(bm, 0, 0, paint1);
+
+
+//    Shader mShader = new RadialGradient(10, 15,150, Color.RED, Color.BLACK, Shader.TileMode.MIRROR);
+ //   paint1.setShader(mShader);
+
+    //Canvas c = new Canvas(bm);
+    //paint1.setShader(mShader);
+    //c.drawCircle(0, 0, 1, paint1);
+    //c.drawRect(0, 0, 200, 200, paint1);
+    //c.drawBitmap(bm, 0,0, paint1);
+
+
+//     Canvas canvas1 = new Canvas(bm);
+//    canvas1.drawBitmap(bm, 0, 0, paint1);
 
 
     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
     paint.setColor(Color.WHITE);
 
-    paint.setTextSize(23);
+    paint.setTextSize(30);
 
     Canvas canvas = new Canvas(bm);
 
@@ -265,6 +276,9 @@ public class SlideToUnlock extends RelativeLayout {
 
 
     BitmapDrawable drawable = new BitmapDrawable(getResources(),bm);
+
+
+
 
     return drawable;
   }
